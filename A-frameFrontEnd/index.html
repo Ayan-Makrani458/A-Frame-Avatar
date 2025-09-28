@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A-frame Avatar Prototype</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a-scene background="color: #ECECEC">
+    <a-entity id="avatar" position="0 1 -2"
+              gltf-model="url(https://models.readyplayer.me/68c3eef7c036016545e054ba.glb?morphTargets=ARKit,Oculus%20Visemes)"
+              animation-mixer
+              look-at="[camera]"
+              lipsync>
+    </a-entity>
+    <a-camera position="0 1.6 0"></a-camera>
+  </a-scene>
+
+  <div class="ui">
+    <button id="mic-btn">Mic: Off</button>
+    <input type="text" id="input-msg" placeholder="Type your message" />
+    <button id="send-btn">Send</button>
+    <div id="chat-log" class="chat-log"></div>
+    <div id="status" class="status">Status: Idle</div>
+    <div id="volbar" class="volbar"></div>
+
+    <div class="controls">
+      <button onclick="testBlink()">Blink</button>
+      <button onclick="testSmile()">Smile</button>
+      <button onclick="testFrown()">Frown</button>
+    </div>
+
+    <div class="emotions">
+      <button data-emotion="neutral">Neutral</button>
+      <button data-emotion="friendly">Friendly</button>
+      <button data-emotion="thoughtful">Thoughtful</button>
+      <button data-emotion="surprised">Surprised</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
